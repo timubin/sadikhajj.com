@@ -1,0 +1,215 @@
+/* ==========================================================================
+   সাদিক হজ্ব ও ওমরাহ সার্ভিস (sadikhajj.com) — Modern 3D Clean Stylesheet
+   ========================================================================== */
+
+:root {
+  --emerald-deep: #042f2e;
+  --emerald-rich: #064e3b;
+  --emerald-soft: #ecfdf5;
+  --gold-primary: #c99a2e;
+  --gold-bright: #e5b84b;
+  --gold-light: #fef3c7;
+  --surface-ivory: #fafaf7;
+  --text-dark: #0f172a;
+}
+
+/* Smooth scrolling & custom scrollbar */
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #065f46;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c99a2e;
+}
+
+/* Subtle Islamic Geometric Pattern Overlay */
+.islamic-pattern-bg {
+  background-color: #fafaf7;
+  background-image: radial-gradient(rgba(6, 78, 59, 0.05) 1px, transparent 1px),
+    radial-gradient(rgba(201, 154, 46, 0.06) 1px, #fafaf7 1px);
+  background-size: 36px 36px;
+  background-position: 0 0, 18px 18px;
+}
+
+/* 3D Perspective & Depth Utilities */
+.perspective-1000 {
+  perspective: 1200px;
+}
+
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease;
+  will-change: transform;
+  position: relative;
+}
+
+.card-3d::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(229, 184, 75, 0.14),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.card-3d:hover::after {
+  opacity: 1;
+}
+
+.card-3d:hover {
+  box-shadow: 0 28px 60px -15px rgba(4, 47, 46, 0.16),
+    0 12px 24px -10px rgba(201, 154, 46, 0.12);
+}
+
+.card-3d-inner {
+  transform: translateZ(24px);
+}
+
+.card-3d-badge {
+  transform: translateZ(42px);
+}
+
+/* 3D Elevated Glassmorphism */
+.glass-3d {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 45px -12px rgba(4, 47, 46, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9);
+}
+
+.glass-dark-3d {
+  background: rgba(4, 47, 46, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(229, 184, 75, 0.25);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.12);
+}
+
+/* 3D Tactile Button */
+.btn-3d-gold {
+  background: linear-gradient(135deg, #e5b84b 0%, #c99a2e 100%);
+  box-shadow: 0 10px 25px -6px rgba(201, 154, 46, 0.45),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5),
+    0 4px 0 #9f7518;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.btn-3d-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -6px rgba(201, 154, 46, 0.55),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    0 6px 0 #9f7518;
+  filter: brightness(1.04);
+}
+
+.btn-3d-gold:active {
+  transform: translateY(2px);
+  box-shadow: 0 4px 12px -4px rgba(201, 154, 46, 0.4),
+    0 2px 0 #9f7518;
+}
+
+.btn-3d-emerald {
+  background: linear-gradient(135deg, #065f46 0%, #042f2e 100%);
+  box-shadow: 0 10px 25px -6px rgba(4, 47, 46, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2),
+    0 4px 0 #021d1c;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.btn-3d-emerald:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -6px rgba(4, 47, 46, 0.45),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    0 6px 0 #021d1c;
+}
+
+.btn-3d-emerald:active {
+  transform: translateY(2px);
+  box-shadow: 0 4px 12px -4px rgba(4, 47, 46, 0.3),
+    0 2px 0 #021d1c;
+}
+
+/* Floating Animation */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0.5deg);
+  }
+}
+
+.animate-float {
+  animation: floatSlow 5.5s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatSlow 6.5s ease-in-out 1.2s infinite;
+}
+
+/* Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero 3D Canvas Container */
+#hero-3d-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Package Filter Tab Active State */
+.pkg-tab.active {
+  background: linear-gradient(135deg, #065f46 0%, #042f2e 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 20px -4px rgba(4, 47, 46, 0.3);
+  border-color: transparent;
+}
+
+/* FAQ Smooth Accordion */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+  opacity: 0;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 300px;
+  opacity: 1;
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(180deg);
+}
