@@ -354,7 +354,7 @@ function initBookingModal() {
       const pkg = pkgInput ? pkgInput.value : "ওমরাহ/হজ্ব প্যাকেজ";
 
       const message = `আসসালামু আলাইকুম সাদিক হজ্ব টিম,\nআমি "${pkg}" সম্পর্কে বুকিং ও বিস্তারিত জানতে চাই।\n\nনাম: ${name}\nমোবাইল: ${phone}\nযাত্রী সংখ্যা: ${travelers} জন`;
-      window.open(`https://wa.me/8801979355145?text=${encodeURIComponent(message)}`, "_blank");
+      window.open(`https://wa.me/8801617723455?text=${encodeURIComponent(message)}`, "_blank");
       closeModal();
     });
   }
@@ -375,6 +375,6 @@ function initContactForm() {
     const notes = document.getElementById("contact-message").value.trim();
 
     const message = `আসসালামু আলাইকুম সাদিক হজ্ব টিম,\nবিষয়: ${topic}\nনাম: ${name}\nমোবাইল: ${phone}\nবার্তা: ${notes || "বিস্তারিত জানতে চাই।"}`;
-    window.open(`https://wa.me/8801979355145?text=${encodeURIComponent(message)}`, "_blank");
+    window.open(`https://wa.me/8801617723455?text=${encodeURIComponent(message)}`, "_blank");
   });
 }
